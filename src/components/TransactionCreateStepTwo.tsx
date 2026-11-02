@@ -197,7 +197,7 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                     className={classes.submit}
                     data-test="transaction-create-submit-payment"
                     disabled={!isValid || isSubmitting}
-                    onClick={() => setTransactionType("request")}
+                    onClick={() => setTransactionType("payment")}
                   >
                     Pay
                   </Button>
