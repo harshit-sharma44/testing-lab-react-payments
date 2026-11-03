@@ -122,7 +122,6 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
             createTransaction({
               transactionType,
               ...values,
-              amount: Math.round(Number(values.amount) * 100),
             });
             showSnackbar({
               severity: "success",
