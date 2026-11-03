@@ -119,11 +119,7 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
             // reset transactionType
             setTransactionType(undefined);
 
-            createTransaction({
-              transactionType,
-              ...values,
-              amount: Math.round(Number(values.amount) * 100),
-            });
+            createTransaction({ transactionType, ...values });
             showSnackbar({
               severity: "success",
               message: "Transaction Submitted!",
