@@ -1,8 +1,10 @@
 name: ContextQA Test Plan
 
+# Runs the Release regression plan every time a GitHub release is published,
+# and on demand from the Actions tab.
 on:
-  push:
-    branches: [main]
+  release:
+    types: [published]
   workflow_dispatch:
 
 # Least privilege: the job only reads the repo.
@@ -36,6 +38,7 @@ jobs:
           POLL_TIMEOUT=3600
 
           # Trigger the plan.
+          echo "Release: ${{ github.event.release.tag_name || github.ref_name }}"
           echo "Triggering test plan $TEST_PLAN_ID"
           BODY=$(mktemp)
           trap 'rm -f "$BODY"' EXIT
